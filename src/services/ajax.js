@@ -19,13 +19,13 @@ const ajax = (url, options) => {
 
   return axios({
     url: baseUrl + url,
-    method: method.toUpperCase() || 'POST',
+    method: method && method.toUpperCase() || 'POST',
     ...restOptions
   }).then(res=>{
     return res.data;
   }).catch(err=>{
     // do something
-    // Dialog.toast('请求失败'); //全局错误提示
+    //全局错误提示
 
     return err;
   });

@@ -1,4 +1,22 @@
 module.exports = {
+  // 扩展 babel-loader 的 plugins
+  extraBabelPlugins: [['import', { libraryName: 'antd', style: true }]],
+
+  // 通过 webpack 的 DefinePlugin 传递给代码，值会自动做 JSON.stringify 处理。
+  define: {
+    APIURL: '/'
+  },
+
+  // 不同环境配置，可自定义stage、dev等环境构建
+  env: {
+    // 生产环境配置
+    production: {
+      define: {
+        APIURL: 'https://prod.example.com/'
+      }
+    }
+  },
+
   // entry: 'src/app.js',
   // outputPath: 'dist',
   // outputFilename: 'res/j/[name].[hash].js',
@@ -27,22 +45,5 @@ module.exports = {
 
   // 构建完成后，输出zip包
   // zip: 'build/simple.zip',
-
-  // 扩展 babel-loader 的 plugins
-  extraBabelPlugins: [['import', { libraryName: 'antd', style: true }]],
-
-  // 通过 webpack 的 DefinePlugin 传递给代码，值会自动做 JSON.stringify 处理。
-  define: {
-    APIURL: '/'
-  },
-
-  env: {
-    // 生产环境配置
-    production: {
-      define: {
-        APIURL: 'https://prod.example.com/'
-      }
-    }
-  }
 }
 

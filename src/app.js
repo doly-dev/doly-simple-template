@@ -25,10 +25,6 @@ const pages = [
   }
 ];
 
-// eslint-disable-next-line
-// console.log(APIURL);
-
-// eslint-disable-next-line
 class App extends React.Component {
   render() {
     return (
