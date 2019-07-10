@@ -5,7 +5,11 @@
   "scripts": {
     "start": "doly dev",
     "start:no-mock": "cross-env MOCK=none doly dev",
-    "build": "doly build"
+    "build": "doly build",
+    "lint": "eslint --ext .jsx,.js src mocker",
+    "lint:fix": "eslint --fix --ext .js,.jsx src mocker",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --ext .js,.jsx"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +23,18 @@
   "devDependencies": {
     "babel-plugin-import": "^1.12.0",
     "cross-env": "^5.2.0",
-    "doly-cli": "^0.5.0"
+    "doly-cli": "^0.5.0",
+    "eslint": "^6.0.1",
+    "husky": "^2.0.0",
+    "lint-staged": "^9.0.2",
+    "eslint-config-doly-react": "0.0.2-alpha.1"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": "npm run lint-staged:js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
   }
 }
