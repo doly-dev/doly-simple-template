@@ -1,25 +1,40 @@
 {
-  "name": "doly-scaffold-simple",
+  "name": "doly-simple-template",
   "version": "1.0.0",
   "description": "Development web with doly-cli.",
   "scripts": {
     "start": "doly dev",
     "start:no-mock": "cross-env MOCK=none doly dev",
-    "build": "doly build"
+    "build": "doly build",
+    "lint": "eslint --ext .jsx,.js src mocker",
+    "lint:fix": "eslint --fix --ext .js,.jsx src mocker",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --ext .js,.jsx"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "antd": "^3.15.2",
-    "axios": "^0.18.0",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
-    "react-router-dom": "^4.3.1",
-    "whatwg-fetch": "^3.0.0"
+    "antd": "^3.20.1",
+    "axios": "^0.19.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1"
   },
   "devDependencies": {
-    "babel-plugin-import": "^1.11.0",
+    "babel-plugin-import": "^1.12.0",
     "cross-env": "^5.2.0",
-    "doly-cli": "^0.3.11"
+    "doly-cli": "^0.5.0",
+    "eslint": "^6.0.1",
+    "husky": "^2.0.0",
+    "lint-staged": "^9.0.2",
+    "eslint-config-doly-react": "0.0.2-alpha.1"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": "npm run lint-staged:js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
   }
 }
