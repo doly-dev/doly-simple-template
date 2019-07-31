@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // eslint-disable-next-line
-const baseUrl = APIURL;
+const baseUrl = '';
 
 const ajax = (url, options) => {
   if(!url){
