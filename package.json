@@ -4,13 +4,12 @@
   "prettier": "prettier-config-doly",
   "description": "Development web with doly-cli.",
   "scripts": {
-    "start": "npx doly dev",
-    "start:no-mock": "npx cross-env MOCK=none npx doly dev",
-    "build": "npx doly build",
+    "start": "doly dev",
+    "start:no-mock": "cross-env MOCK=none doly dev",
+    "build": "doly build",
     "lint": "eslint --ext .jsx,.js src mocker",
     "lint:prettier": "prettier-files check",
-    "prettier": "prettier --write",
-    "prettier:all": "prettier-files write",
+    "prettier": "prettier-files write",
     "lint:fix": "eslint --fix --ext .js,.jsx src mocker",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js,.jsx"
