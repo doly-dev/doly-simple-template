@@ -1,111 +1,38 @@
-import React, { Component } from "react"
-import services from "~/services"
-import picTangwei from "~/assets/images/tangwei.jpeg"
-import Timer from "~/components/Timer"
+import React from "react";
 
-import styles from "./style.less"
-
-export default class HomePage extends Component {
-  state = {
-    loading: false,
-    notices: []
-  }
-
-  getNotices = () => {
-    const { loading } = this.state
-    if (loading) {
-      return
-    }
-
-    this.setState({
-      loading: true
-    })
-
-    services
-      .getNotices()
-      .then(res => {
-        this.setState({
-          notices: res.data
-        })
-      })
-      .finally(() => {
-        this.setState({
-          loading: false
-        })
-      })
-  }
-
-  clearNotices = () => {
-    this.setState({
-      notices: []
-    })
-  }
-
-  render() {
-    const { loading, notices } = this.state
-
-    return (
-      <div>
-        <h2>Home Page</h2>
-        <h3>Component</h3>
-        <Timer />
-        <h3>Mock</h3>
-        <div>
-          <button
-            className={styles.btn}
-            onClick={this.getNotices}
-            disabled={loading}
-            type="button"
-          >
-            {loading ? "获取中..." : "获取通知列表"}
-          </button>
-          {notices.length > 0 && (
-            <a
-              href="javascript:;"
-              onClick={this.clearNotices}
-              style={{ marginLeft: 10 }}
-            >
-              清空
-            </a>
-          )}
-        </div>
-        <div>
-          {notices.length > 0 ? (
-            <ul>
-              {notices.map(notice => (
-                <li key={notice.timestamp}>{notice.content}</li>
-              ))}
-            </ul>
-          ) : (
-            <span style={{ color: "gray" }}>暂无通知</span>
-          )}
-        </div>
-        <h3>CSS</h3>
-        <p>
-          默认使用
-          <a
-            href="https://github.com/webpack-contrib/css-loader#modules"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            css module
-          </a>
-          <br />
-          <br />
-          <em>每个独立组件和页面，单独放一个样式文件</em>
-        </p>
-        <span className={styles.bgColors}>
-          <span className={styles.red}>赤</span>
-          <span className={styles.orange}>橙</span>
-          <span className={styles.yellow}>黄</span>
-          <span className={styles.green}>绿</span>
-          <span className={styles.cyan}>青</span>
-          <span className={styles.blue}>蓝</span>
-          <span className={styles.purple}>紫</span>
-        </span>
-        <h3>Image</h3>
-        <img src={picTangwei} className={styles.pic} alt="" />
-      </div>
-    )
-  }
+export default function() {
+  return (
+    <div>
+      <h2>Home Page</h2>
+      <p>
+        适用于开发简单web项目，构建工具使用
+        <a href="https://github.com/doly-dev/doly-cli#readme">doly-cli</a>
+      </p>
+      <p>如果要制定自己的业务脚手架，可以基于它进行修改。</p>
+      <h3>目录结构</h3>
+      <pre>
+        {`├── mocker                   # mock数据
+├── public
+│   ├── favicon.png          # Favicon
+├── src
+│   ├── assets               # 静态资源，如图片、样式、字体等
+│   ├── components           # 组件
+│   ├── pages                # 页面
+│   ├── services             # 后台接口服务
+│   ├── utils                # 工具库
+│   ├── app.js               # 入口 JS
+│   ├── router.config.js     # 路由配置
+│   ├── index.html           # html页面
+├── doly.config.js           # doly 配置
+├── package.json
+├── README.md`}
+      </pre>
+      <h3>本地运行</h3>
+      <pre>{`$ npm start`}</pre>
+      <p>或不使用mock数据</p>
+      <pre>{`$ npm run start:no-mock`}</pre>
+      <h3>打包</h3>
+      <pre>{`$ npm run build`}</pre>
+    </div>
+  );
 }

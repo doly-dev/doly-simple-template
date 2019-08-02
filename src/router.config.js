@@ -1,7 +1,7 @@
 // pages
-import HomePage from "~/pages/home"
-import AboutPage from "~/pages/about"
-import ExceptionPage from "~/pages/exception"
+import HomePage from "~/pages/home";
+import ExamplePage from "~/pages/example";
+import ExceptionPage from "~/pages/exception";
 
 export default [
   {
@@ -10,11 +10,11 @@ export default [
     exact: true
   },
   {
-    path: "/about",
-    component: AboutPage
+    path: "/example",
+    component: ExamplePage
   },
   {
     path: "/404",
     component: ExceptionPage
   }
-]
+];

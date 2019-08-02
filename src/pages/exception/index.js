@@ -1,11 +1,11 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default class ExceptionPage extends React.Component {
   goBack = () => {
-    const { history } = this.props
-    history.goBack()
-  }
+    const { history } = this.props;
+    history.goBack();
+  };
 
   render() {
     return (
@@ -22,6 +22,6 @@ export default class ExceptionPage extends React.Component {
           </li>
         </ul>
       </div>
-    )
+    );
   }
 }

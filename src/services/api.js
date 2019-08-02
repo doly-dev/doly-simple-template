@@ -18,7 +18,7 @@ const apiConfig = {
     url: "/api/notices",
     method: "get"
   }
-}
+};
 
 // 注意使用的是module.exports，便于本地开发mock使用
-module.exports = apiConfig
+module.exports = apiConfig;

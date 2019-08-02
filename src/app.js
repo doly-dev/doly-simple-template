@@ -1,17 +1,17 @@
-import "core-js/stable"
-import "~/app.less"
+import "core-js/stable";
+import "~/app.less";
 
-import React from "react"
-import ReactDom from "react-dom"
+import React from "react";
+import ReactDom from "react-dom";
 import {
   HashRouter as Router,
   Route,
   Redirect,
   Switch,
   Link
-} from "react-router-dom"
+} from "react-router-dom";
 
-import routerConfig from "~/router.config"
+import routerConfig from "~/router.config";
 
 function App() {
   return (
@@ -23,7 +23,10 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/example">Example</Link>
+          </li>
+          <li>
+            <Link to="/nomatch">NotFound</Link>
           </li>
         </ul>
         <Switch>
@@ -34,7 +37,7 @@ function App() {
         </Switch>
       </>
     </Router>
-  )
+  );
 }
 
-ReactDom.render(<App />, document.getElementById("root"))
+ReactDom.render(<App />, document.getElementById("root"));
