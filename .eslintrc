@@ -1,0 +1,17 @@
+{
+  "extends": ["eslint-config-doly-react", "prettier"],
+  "rules": {
+    "no-script-url": 0,
+    "no-restricted-syntax": 0,
+    "linebreak-style": 0,
+    "import/no-unresolved": [2, { "ignore": ["^~"] }],
+    "react/prop-types": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "jsx-a11y/anchor-is-valid": 0
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  }
+}

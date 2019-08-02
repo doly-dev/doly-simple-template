@@ -1,33 +1,46 @@
-# scaffold-simple
+# doly-simple-template
 
-> 本地环境需安装 [node](http://nodejs.org/) 和 [git](https://git-scm.com/)
+> 适用于开发简单web项目，构建工具使用 [doly-cli](https://github.com/doly-dev/doly-cli#readme) 。
+> 
+> 如果要制定自己的业务脚手架，可以基于它进行修改。
 
-基于 [react](https://facebook.github.io/react/) 的简易脚手架， 适用于各种web端开发
 
-构建工具使用的是 [doly-cli](https://www.npmjs.com/package/doly-cli) 
+
+**默认集成以下模块**
+
+- [axios](https://github.com/axios/axios) - 请求
+- [react-router-dom](https://github.com/ReactTraining/react-router) - 路由
+- [eslint-config-doly-react](https://github.com/doly-dev/eslint-config-doly/tree/master/packages/eslint-config-doly-react) - 代码检查
+- [prettier-config-doly](https://github.com/doly-dev/prettier-config-doly) - 代码风格
+
+`pre-commit` 会执行代码检查，可以在 `.eslintrc` 文件扩展或重写规则。参考 [ESLint Rules](http://eslint.cn/docs/rules/#stylistic-issues)、[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 
 ## 目录结构
 
 ```
-├── mocker                   # 本地模拟数据
+├── mocker                   # mock数据
 ├── public
 │   ├── favicon.png          # Favicon
 ├── src
-│   ├── assets               # 本地静态资源，图片、样式、字体等
-│   ├── components           # 业务通用组件
-│   ├── pages                # 业务页面入口和常用模板
+│   ├── assets               # 静态资源，如图片、样式、字体等
+│   ├── components           # 组件
+│   ├── pages                # 页面
 │   ├── services             # 后台接口服务
 │   ├── utils                # 工具库
-│   ├── app.js               # 全局 JS
-│   ├── app.less             # 全局样式
+│   ├── app.js               # 入口 JS
+│   ├── router.config.js     # 路由配置
 │   ├── index.html           # html页面
-│   ├── doly.config.js       # doly 配置
+├── doly.config.js           # doly 配置
 ├── package.json
 ├── README.md
 
 ```
 
 ## 本地开发
+
+> 本地环境需安装 [node](http://nodejs.org/) 和 [git](https://git-scm.com/)
+
+`git clone` 项目，进入项目文件
 
 ### 安装依赖
 
@@ -46,7 +59,7 @@ npm start
 or 
 
 ```shell
-# 不走本地伪造数据
+# 不使用mock数据
 npm run start:no-mock
 ```
 
@@ -58,20 +71,5 @@ npm run start:no-mock
 npm run build
 ```
 
----
-
-**tips** 
-
-通过 `doly.config.js` `env` 可实现[不同环境配置](https://www.npmjs.com/package/doly-cli#%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE)
-
-例如，在 `package.json` 中的 `script` 加入 `"start:sit": "doly dev sit"` ，终端运行
-
-```shell
-npm run start:sit
-```
-
-即可运行 `sit` 环境配置的代码。
-
-同理，打包也支持不同环境
 
 

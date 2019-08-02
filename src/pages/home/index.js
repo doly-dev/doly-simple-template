@@ -1,63 +1,110 @@
-import React, { Component } from 'react';
+import React, { Component } from "react"
+import services from "~/services"
+import picTangwei from "~/assets/images/tangwei.jpeg"
+import Timer from "~/components/Timer"
 
-import { home as homeService } from '../../services';
-
-import { Button } from 'antd';
-
-import styles from './style.less';
-
-// 缓存
-let notices = [];
+import styles from "./style.less"
 
 export default class HomePage extends Component {
-  state={
+  state = {
     loading: false,
-    notices: notices
+    notices: []
   }
 
-  getNotices=()=>{
+  getNotices = () => {
+    const { loading } = this.state
+    if (loading) {
+      return
+    }
+
     this.setState({
       loading: true
-    });
+    })
 
-    homeService.getNotices().then(res=>{
-      notices = res.data;
-
-      this.setState({
-        notices,
-        loading: false
-      });
-    });
+    services
+      .getNotices()
+      .then(res => {
+        this.setState({
+          notices: res.data
+        })
+      })
+      .finally(() => {
+        this.setState({
+          loading: false
+        })
+      })
   }
 
-  clearNotices=()=>{
-    notices = [];
-
+  clearNotices = () => {
     this.setState({
-      notices
-    });
+      notices: []
+    })
   }
 
-  render(){
-    const {
-      notices,
-      loading
-    } = this.state;
+  render() {
+    const { loading, notices } = this.state
 
     return (
       <div>
-        <Button className={styles.btn} onClick={this.getNotices} disabled={loading}>{loading ? '获取通知中...' : '获取通知列表（mock数据）'}</Button>
-        <h2>
-          通知列表
-          {
-            notices.length > 0 ? <a href="javascript:;" style={{marginLeft: '10px', fontSize: '12px', color: 'red'}} onClick={this.clearNotices}>清空</a> : ''
-          }
-        </h2>
+        <h2>Home Page</h2>
+        <h3>Component</h3>
+        <Timer />
+        <h3>Mock</h3>
         <div>
-          {
-            notices.length > 0 ? notices.map(notice=><p key={`${notice.content}${notice.timestamp}`}>{notice.content}...{notice.timestamp}</p>) : '暂无通知'
-          }
+          <button
+            className={styles.btn}
+            onClick={this.getNotices}
+            disabled={loading}
+            type="button"
+          >
+            {loading ? "获取中..." : "获取通知列表"}
+          </button>
+          {notices.length > 0 && (
+            <a
+              href="javascript:;"
+              onClick={this.clearNotices}
+              style={{ marginLeft: 10 }}
+            >
+              清空
+            </a>
+          )}
         </div>
+        <div>
+          {notices.length > 0 ? (
+            <ul>
+              {notices.map(notice => (
+                <li key={notice.timestamp}>{notice.content}</li>
+              ))}
+            </ul>
+          ) : (
+            <span style={{ color: "gray" }}>暂无通知</span>
+          )}
+        </div>
+        <h3>CSS</h3>
+        <p>
+          默认使用
+          <a
+            href="https://github.com/webpack-contrib/css-loader#modules"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            css module
+          </a>
+          <br />
+          <br />
+          <em>每个独立组件和页面，单独放一个样式文件</em>
+        </p>
+        <span className={styles.bgColors}>
+          <span className={styles.red}>赤</span>
+          <span className={styles.orange}>橙</span>
+          <span className={styles.yellow}>黄</span>
+          <span className={styles.green}>绿</span>
+          <span className={styles.cyan}>青</span>
+          <span className={styles.blue}>蓝</span>
+          <span className={styles.purple}>紫</span>
+        </span>
+        <h3>Image</h3>
+        <img src={picTangwei} className={styles.pic} alt="" />
       </div>
     )
   }
