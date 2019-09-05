@@ -37,7 +37,7 @@
     "prettier-files": "0.0.1-alpha.2"
   },
   "lint-staged": {
-    "**/*.{js,ts,tsx,json,jsx,less}": [
+    "**/*.{js,ts,tsx,jsx,less}": [
       "prettier-files check",
       "git add"
     ],
