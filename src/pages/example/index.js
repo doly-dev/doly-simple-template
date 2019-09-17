@@ -90,6 +90,8 @@ export default class ExamplePage extends Component {
           >
             css module
           </a>
+          。可在 <strong>doly.config.js</strong> 中配置{" "}
+          <strong>disableCSSModules</strong> 禁用。
           <br />
           <br />
           <em>每个独立组件和页面，单独放一个样式文件</em>
