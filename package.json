@@ -24,7 +24,6 @@
     "react-router-dom": "^5.0.1"
   },
   "devDependencies": {
-    "babel-plugin-import": "^1.12.0",
     "cross-env": "^5.2.0",
     "doly-cli": "0.6.4",
     "eslint": "^5.16.0",

@@ -1,5 +1,5 @@
 import "core-js/stable";
-import "~/app.less";
+import "~/assets/css/common.less";
 
 import React from "react";
 import ReactDom from "react-dom";
