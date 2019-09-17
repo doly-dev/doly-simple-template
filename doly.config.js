@@ -20,6 +20,7 @@ module.exports = {
   env: {
     // 生产环境
     production: {
+      publicPath: "./",
       define: {
         API_URL: ""
       }

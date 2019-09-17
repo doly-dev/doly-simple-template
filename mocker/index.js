@@ -1,3 +1,5 @@
+const { existsSync } = require("fs");
+const { join } = require("path");
 const delay = require("doly-cli/mocker-api/delay"); // eslint-disable-line
 const api = require("../src/services/api");
 
@@ -34,7 +36,27 @@ const createApi = (apiInfo, res) => {
   mocks[`${method.toUpperCase()} ${url}`] = ret;
 };
 
-createApi(api.login);
-createApi(api.getNotices, "./getNotices.js");
+const enableExts = ["json", "js"];
+
+function getFileExt(dir, filename) {
+  let ext = "";
+
+  enableExts.some(extItem => {
+    const file = join(dir, `${filename}.${extItem}`);
+    if (existsSync(file)) {
+      ext = extItem;
+      return true;
+    }
+    return false;
+  });
+
+  return ext;
+}
+
+for (const [key, value] of Object.entries(api)) {
+  const ext = getFileExt(__dirname, key);
+  const mockFile = join(__dirname, `${key}.${ext}`);
+  createApi(value, existsSync(mockFile) ? mockFile : undefined);
+}
 
 module.exports = noMock ? {} : delay(mocks, 1000);
