@@ -1,4 +1,4 @@
-import "core-js/stable";
+import "~/utils/polyfill";
 import "~/assets/css/common.less";
 
 import React from "react";
