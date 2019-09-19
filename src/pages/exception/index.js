@@ -13,7 +13,12 @@ export default class ExceptionPage extends React.Component {
         <h2>404</h2>
         <ul>
           <li>
-            <a href="javascript:;" onClick={this.goBack}>
+            <a
+              role="button"
+              onClick={this.goBack}
+              onKeyDown={() => {}}
+              tabIndex="0"
+            >
               back
             </a>
           </li>

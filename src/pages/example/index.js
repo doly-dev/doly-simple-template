@@ -61,8 +61,10 @@ export default class ExamplePage extends Component {
           </button>
           {notices.length > 0 && (
             <a
-              href="javascript:;"
               onClick={this.clearNotices}
+              role="button"
+              onKeyDown={() => {}}
+              tabIndex="0"
               style={{ marginLeft: 10 }}
             >
               清空
