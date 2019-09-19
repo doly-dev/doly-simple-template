@@ -60,15 +60,13 @@ export default class ExamplePage extends Component {
             {loading ? "获取中..." : "获取通知列表"}
           </button>
           {notices.length > 0 && (
-            <a
+            <button
               onClick={this.clearNotices}
-              role="button"
-              onKeyDown={() => {}}
-              tabIndex="0"
+              type="button"
               style={{ marginLeft: 10 }}
             >
               清空
-            </a>
+            </button>
           )}
         </div>
         <div>
