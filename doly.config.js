@@ -2,9 +2,12 @@ const path = require("path");
 
 module.exports = {
   html: {
-    title: "Doly Simple Template",
     template: "src/document.ejs",
-    filename: "index.html"
+    filename: "index.html",
+    minify: {
+      removeComments: true,
+      collapseWhitespace: true
+    }
   },
 
   // 别名
