@@ -3,11 +3,7 @@ const path = require("path");
 module.exports = {
   html: {
     template: "src/document.ejs",
-    filename: "index.html",
-    minify: {
-      removeComments: true,
-      collapseWhitespace: true
-    }
+    filename: "index.html"
   },
 
   // 别名
@@ -22,11 +18,23 @@ module.exports = {
     DEV: true
   },
 
+  devServer: {
+    hot: false
+  },
+
   // 不同环境配置
   env: {
     // 生产环境
     production: {
       publicPath: "./",
+      html: {
+        template: "src/document.ejs",
+        filename: "index.html",
+        minify: {
+          removeComments: true,
+          collapseWhitespace: true
+        }
+      },
       define: {
         API_URL: ""
       }

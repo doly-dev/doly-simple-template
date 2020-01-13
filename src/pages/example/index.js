@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import services from "~/services";
-import picTangwei from "~/assets/images/tangwei.jpeg";
 import Timer from "~/components/Timer";
 
 import styles from "./style.less";
@@ -8,36 +8,7 @@ import styles from "./style.less";
 export default class ExamplePage extends Component {
   state = {
     loading: false,
-    notices: [],
-    username: "",
-    age: "",
-    token: ""
-  };
-
-  componentDidMount() {
-    this.auth().then(res => {
-      this.setState({
-        ...res
-      });
-    });
-  }
-
-  auth = () => {
-    const loginPromise = services.login();
-    const userinfoPromise = services.getUserInfo();
-
-    return Promise.all([loginPromise, userinfoPromise]).then(res => {
-      const { token } = res[0];
-      const {
-        data: { username, age }
-      } = res[1];
-
-      return {
-        token,
-        username,
-        age
-      };
-    });
+    notices: []
   };
 
   getNotices = () => {
@@ -66,13 +37,14 @@ export default class ExamplePage extends Component {
   };
 
   render() {
-    const { loading, notices, username, age, token } = this.state;
+    const { loading, notices } = this.state;
 
     return (
       <div>
-        <h2>Example Page</h2>
-        <h3>Component</h3>
-        <Timer />
+        <h2>Example</h2>
+        <Link to="/">跳转首页</Link>
+        <br />
+        <Link to="/456">跳转不存在的页面</Link>
         <h3>Mock</h3>
         <div>
           <button
@@ -83,15 +55,7 @@ export default class ExamplePage extends Component {
           >
             {loading ? "获取中..." : "获取通知列表"}
           </button>
-          {notices.length > 0 && (
-            <button
-              onClick={this.clearNotices}
-              type="button"
-              style={{ marginLeft: 10 }}
-            >
-              清空
-            </button>
-          )}
+          {notices.length > 0 && <a onClick={this.clearNotices}>清空</a>}
         </div>
         <div>
           {notices.length > 0 ? (
@@ -104,36 +68,8 @@ export default class ExamplePage extends Component {
             <span style={{ color: "gray" }}>暂无通知</span>
           )}
         </div>
-        <br />
-        <p>token: {token}</p>
-        <p>username: {username}</p>
-        <p>age: {age}</p>
-        <hr />
-        <h3>CSS</h3>
-        <p>
-          默认使用
-          <a
-            href="https://github.com/webpack-contrib/css-loader#modules"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            css module
-          </a>
-          <br />
-          <br />
-          <em>每个独立组件和页面，单独放一个样式文件</em>
-        </p>
-        <span className={styles.bgColors}>
-          <span className={styles.red}>赤</span>
-          <span className={styles.orange}>橙</span>
-          <span className={styles.yellow}>黄</span>
-          <span className={styles.green}>绿</span>
-          <span className={styles.cyan}>青</span>
-          <span className={styles.blue}>蓝</span>
-          <span className={styles.purple}>紫</span>
-        </span>
-        <h3>Image</h3>
-        <img src={picTangwei} className={styles.pic} alt="" />
+        <h3>Component</h3>
+        <Timer />
       </div>
     );
   }
