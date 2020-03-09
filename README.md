@@ -29,7 +29,7 @@
 │   ├── utils                # 工具
 │   ├── app.js               # 入口 JS
 │   ├── router.config.js     # 路由配置
-│   ├── index.html           # html页面
+│   ├── document.ejs         # html页面
 ├── doly.config.js           # doly 配置
 ├── package.json
 ├── README.md
