@@ -20,7 +20,6 @@
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
-    "doly-mocker-api": "^1.0.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
@@ -29,6 +28,7 @@
   "devDependencies": {
     "cross-env": "^5.2.0",
     "doly-cli": "0.7.4",
+    "doly-mocker-api": "^1.0.0",
     "eslint": "^5.16.0",
     "eslint-config-doly-react": "0.0.3-alpha.0",
     "eslint-config-prettier": "^6.0.0",
