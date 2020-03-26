@@ -15,6 +15,10 @@
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js,.jsx"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doly-dev/doly-simple-template"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
