@@ -18,7 +18,7 @@ function App() {
         {routerConfig.map(page => (
           <Route key={`page_${page.name}`} {...page} />
         ))}
-        <Redirect to="/404" />
+        <Redirect to="/" />
       </Switch>
     </Router>
   );
