@@ -5,7 +5,7 @@ const services = {};
 
 function createService(apiOpts) {
   const { name, ...restOpts } = apiOpts;
-  return params => {
+  return data => {
     // 开发环境打印调试信息
     // eslint-disable-next-line
     if (DEV) {
@@ -15,7 +15,7 @@ function createService(apiOpts) {
 
     return request({
       ...restOpts,
-      ...params
+      data
     });
   };
 }
