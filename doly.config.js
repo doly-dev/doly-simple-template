@@ -3,7 +3,7 @@ const pkg = require("./package.json");
 
 module.exports = {
   entry: {
-    [pkg.name]: ["./src/utils/polyfill", "./src/app.js"]
+    [pkg.name]: ["./src/utils/polyfill", "./src/app.tsx"]
   },
   html: {
     template: "src/document.ejs",

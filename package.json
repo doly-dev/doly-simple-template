@@ -22,17 +22,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/react-dom": "^18.3.0",
     "axios": "^0.21.4",
     "core-js": "^3.38.0",
     "qs": "^6.13.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-router-dom": "^5.3.4",
     "regenerator-runtime": "^0.13.11"
   },
   "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-router-dom": "^5.3.3",
     "cross-env": "^5.2.1",
-    "doly-cli": "^1.1.2",
+    "doly-cli": "^1.2.0",
     "doly-mocker-api": "^1.0.0",
     "eslint": "^5.16.0",
     "eslint-config-doly-react": "0.0.3-alpha.0",
@@ -41,7 +44,8 @@
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
     "prettier-config-doly": "0.0.1-alpha.0",
-    "prettier-files": "0.0.1-alpha.2"
+    "prettier-files": "0.0.1-alpha.2",
+    "typescript": "^4.9.5"
   },
   "lint-staged": {
     "**/*.{js,ts,tsx,jsx,less}": [
