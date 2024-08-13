@@ -41,8 +41,8 @@ devDependencies:
     specifier: ^5.2.1
     version: 5.2.1
   doly-cli:
-    specifier: ^1.2.0
-    version: 1.2.0(eslint@5.16.0)(typescript@4.9.5)
+    specifier: ^1.2.1
+    version: 1.2.1(eslint@5.16.0)(typescript@4.9.5)
   doly-mocker-api:
     specifier: ^1.0.0
     version: 1.0.0
@@ -4240,8 +4240,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /doly-cli@1.2.0(eslint@5.16.0)(typescript@4.9.5):
-    resolution: {integrity: sha512-T2sC8Yhpc5D+iiaYCe1g/eCublJJTFaUwPggXHm4PZL5P/JDjeGuo8KqSJPppb53Mcf68gWdZBNSWZGkj6Ad1w==}
+  /doly-cli@1.2.1(eslint@5.16.0)(typescript@4.9.5):
+    resolution: {integrity: sha512-zCl2uz9fRasskDZpLrBNkqlNHb2CIzJ+4x4vIn9WA9s9LMxJzjLqLwL3hoEWulFhbaKK787csG0jQC7hiOxMqA==}
     hasBin: true
     dependencies:
       '@babel/core': 7.25.2
@@ -8438,7 +8438,7 @@ packages:
     resolution: {integrity: sha512-1tKHutbGtLtEZF6PT4JSihCHfIVldU72mZ8SdZHIYriIZ9fh9k9aWSppaT8rHsyI3dX+KSR+W+Ix9BMY3AODrg==}
     dependencies:
       postcss: 7.0.39
-      postcss-selector-parser: 6.1.1
+      postcss-selector-parser: 6.1.2
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -8587,7 +8587,7 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       postcss: 7.0.39
-      postcss-selector-parser: 6.1.1
+      postcss-selector-parser: 6.1.2
       postcss-value-parser: 3.3.1
     dev: true
 
@@ -8596,7 +8596,7 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       postcss: 7.0.39
-      postcss-selector-parser: 6.1.1
+      postcss-selector-parser: 6.1.2
     dev: true
 
   /postcss-modules-values@2.0.0:
@@ -8725,8 +8725,8 @@ packages:
       uniq: 1.0.1
     dev: true
 
-  /postcss-selector-parser@6.1.1:
-    resolution: {integrity: sha512-b4dlw/9V8A71rLIDsSwVmak9z2DuBUB7CA1/wSdelNEzqsjoSPeADTWNO09lpH49Diy3/JIZ2bSPB1dI3LJCHg==}
+  /postcss-selector-parser@6.1.2:
+    resolution: {integrity: sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==}
     engines: {node: '>=4'}
     dependencies:
       cssesc: 3.0.0
