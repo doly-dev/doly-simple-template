@@ -5,7 +5,7 @@
     "no-restricted-syntax": 0,
     "linebreak-style": 0,
     "import/extensions": 0,
-    "import/no-unresolved": [2, { "ignore": ["^~"] }],
+    "import/no-unresolved": 0,
     "react/prop-types": 0,
     "react/jsx-curly-brace-presence": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
